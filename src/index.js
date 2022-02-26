@@ -52,7 +52,7 @@ const sendEncryptedData = async (props) => {
     .then((result) => result.data)
     .catch((error) => error);
 
-  console.log("this", response);
+  console.log("server response", response);
 };
 
 window.onload = handshake;

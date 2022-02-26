@@ -10,4 +10,8 @@ This project is meant to be a usage example of asymmetric encryption using publi
 
 - clone repo
 - run `npm install`
--
+- run `npm start`
+
+## Requirements
+
+This project was tested on Node 14
