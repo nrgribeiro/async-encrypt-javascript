@@ -1,5 +1,7 @@
 # Asymmetric encryption - An example implementation in Javascript
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e55fc2403deb496a8ddce37f1dd0afcf)](https://www.codacy.com/gh/nrgribeiro/async-encrypt-javascript/dashboard?utm_source=github.com&utm_medium=referral&utm_content=nrgribeiro/async-encrypt-javascript&utm_campaign=Badge_Grade)
+
 ## Introduction
 
 This project is meant to be a usage example of asymmetric encryption using public key encription.
