@@ -14,4 +14,4 @@ This project is meant to be a usage example of asymmetric encryption using publi
 
 ## Requirements
 
-This project was tested on Node 14
+This project was tested on Node 14 & 16
