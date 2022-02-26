@@ -16,7 +16,7 @@ const handshake = async () => {
   // save the encrypted shared key and handshake id
   const { encryptedKey, handshakeId } = await axios
     .post(`${BASE_URL}/api/handshake`, {
-      publicKey: publicKey,
+      publicKey,
     })
     .then((result) => result.data)
     .catch((error) => error);
@@ -31,28 +31,26 @@ const handshake = async () => {
   sendEncryptedData({ decryptedSharedKey, handshakeId, data });
 };
 
-const sendEncryptedData = async (props) => {
-  const { decryptedSharedKey, handshakeId, data } = props;
-
+const sendEncryptedData = async ({ decryptedSharedKey, handshakeId, data }) => {
   // generate a random 16 byte IV
   const iv = random.getBytesSync(16);
 
   // encrypt the data using the random IV and the shared key
   const encryption = cipher.createCipher("AES-CBC", decryptedSharedKey);
-  encryption.start({ iv: iv });
+  encryption.start({ iv });
   encryption.update(util.createBuffer(data, "utf8"));
   encryption.finish();
 
   // send the encrypted data and handshake id to the server
   const response = await axios
     .post(`${BASE_URL}/api/account/update`, {
-      handshakeId: handshakeId,
+      handshakeId,
       encryptedData: util.encode64(iv + encryption.output.data),
     })
     .then((result) => result.data)
     .catch((error) => error);
 
-  console.log("server response", response);
+  //console.log("server response", response);
 };
 
 window.onload = handshake;
